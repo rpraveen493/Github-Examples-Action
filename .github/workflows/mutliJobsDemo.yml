@@ -32,6 +32,7 @@ jobs:
               run: |
                    echo "Also we use upload-artifact action to upload the file or directory so other jobs can use them " >> MultipleJobDocument.txt
                    echo "And we need to use download-artifact action to download the file in that job so we can use them properly" >> MultipleJobDocument.txt
+                   cat MultipleJobDocument.txt
 
     finish-job:
         needs: add-job
