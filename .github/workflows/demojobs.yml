@@ -8,7 +8,7 @@ jobs:
         name: cowsay demo
         steps: 
             - name: repo checkout
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
 
             - name: echo command
               run: | 
