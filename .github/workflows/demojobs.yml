@@ -8,4 +8,7 @@ jobs:
         name: just print
         steps: 
             - name: echo command
-              run: echo 'hello world'
+              run: | 
+                echo "aloha praveen"
+                ls -la
+                echo "vanakam di mapla"
