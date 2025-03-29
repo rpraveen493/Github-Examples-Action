@@ -35,7 +35,7 @@ jobs:
             - uses: actions/upload-artifact@v4
               with: 
                 name: MultipleJobDocument.txt
-                path: MultipleJobDocument.txt
+                path: MultipleJobDocument2.txt
 
     finish-job:
         needs: add-job
@@ -45,6 +45,6 @@ jobs:
             - name: downloading the file
               uses: action/download-artifact@v4
               with:
-                name: MultipleJobDocument.txt
+                name: MultipleJobDocument2.txt
             - name: reading the file
               run: cat MultipleJobDocument.txt
