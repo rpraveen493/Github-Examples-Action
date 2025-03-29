@@ -43,8 +43,8 @@ jobs:
         name: Finishing the demo by reading the file
         steps: 
             - name: downloading the file
-              uses: action/download-artifact@v4
+              uses: actions/download-artifact@v4
               with:
                 name: MultipleJobDocument2.txt
             - name: reading the file
-              run: cat MultipleJobDocument.txt
+              run: cat MultipleJobDocument2.txt
