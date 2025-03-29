@@ -12,5 +12,5 @@ jobs:
 
             - name: echo command
               run: | 
-                chmod +x
+                chmod +x samplescript.sh
                 samplescript.sh
