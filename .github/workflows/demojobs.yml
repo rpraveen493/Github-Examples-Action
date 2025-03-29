@@ -12,4 +12,6 @@ jobs:
 
             - name: echo command
               run: | 
-                ls -la
+                cd .github/workflows/
+                chmod +x samplescript.sh
+                samplescript.sh
