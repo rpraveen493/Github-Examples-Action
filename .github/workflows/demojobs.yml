@@ -5,10 +5,12 @@ on : push
 jobs: 
     demo1:
         runs-on: ubuntu-latest
-        name: just print
+        name: cowsay demo
         steps: 
+            - name: repo checkout
+              uses: action/checkout@v4
+
             - name: echo command
               run: | 
-                echo "aloha praveen"
-                ls -la
-                echo "vanakam di mapla"
+                chmod -x
+                samplescript.sh
