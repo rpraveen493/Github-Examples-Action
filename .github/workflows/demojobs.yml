@@ -14,4 +14,4 @@ jobs:
               run: | 
                 cd .github/workflows/
                 chmod +x samplescript.sh
-                samplescript.sh
+                ./samplescript.sh
