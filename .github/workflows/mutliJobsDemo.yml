@@ -1,0 +1,48 @@
+name: Multiple Jobs Demo
+
+on: push
+
+jobs: 
+    build-job:
+        runs-on: ubuntu-latest
+        name: Build job for the repo
+        steps: 
+            - name: code checkout
+              uses: actions/checkout@v4
+
+            - name: create a file
+              run: |
+                   touch MultipleJobDocument.txt
+                   echo "define multiple job in 'jobs' section with different names" >> MultipleJobDocument.txt
+                   echo "we have use 'needs' command to make other jobs to wait for previous one or else it will run parallely" >> MultipleJobDocument.txt
+            - uses: actions/upload-artifact@v4
+              with: 
+                name: MultipleJobDocument.txt
+    add-job: 
+        needs: build-job
+        runs-on: ubuntu-latest
+        name: Adding the additional lines in the file
+        steps:
+            - name: Artifact download
+              uses: actions/download-artifact@v4
+              with:
+                name: MultipleJobDocument.txt
+            - name: Add the data
+              run: |
+                   echo "Also we use upload-artifact action to upload the file or directory so other jobs can use them " >> MultipleJobDocument.txt
+                   echo "And we need to use download-artifact action to download the file in that job so we can use them properly" >> MultipleJobDocument.txt
+            - uses: actions/upload-artifact@v4
+              with: 
+                name: MultipleJobDocument.txt
+
+    finish-job:
+        needs: add-job
+        runs-on: ubuntu-latest
+        name: Finishing the demo by reading the file
+        steps: 
+            - name: downloading the file
+              uses: action/download-artifact@v4
+              with:
+                name: MultipleJobDocument.txt
+            - name: reading the file
+              run: cat MultipleJobDocument.txt
