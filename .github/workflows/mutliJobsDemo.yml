@@ -18,6 +18,7 @@ jobs:
             - uses: actions/upload-artifact@v4
               with: 
                 name: MultipleJobDocument.txt
+                path: MultipleJobDocument.txt
     add-job: 
         needs: build-job
         runs-on: ubuntu-latest
